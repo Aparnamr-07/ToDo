@@ -122,6 +122,11 @@
         flex-direction: column;
     }
 }
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 #reg-btn{
     height: 50px;
     width: 180px;
