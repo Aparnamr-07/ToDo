@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    top: 0;
+    width: 100%;
+}
+.logo{
+    font-size: 30px;
+    display: flex;
+    font-weight: bolder; 
+    animation: slideInLeft 1s ease-out forwards;
+    opacity: 0;
+    img{
+        height: 45px;
+        width: 45px;
+        margin-top: 7%;
+    }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.menu_items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.menu_items :hover {
+    color: #85DB18;
+}
+.btns{
+    gap: 20px;
+    display: flex;
+}
+#reg{
+    height: 50px;
+    width: 120px;
+    border-radius: 25px;
+    border: 1px solid #85DB18;
+    background-color: #85DB18;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+#reg:hover{
+    background-color:black;
+    color: white;
+}
+#login{
+    height: 50px;
+    width: 120px;
+    border-radius: 25px;
+    border: 1px solid #85DB18;
+    background-color: #85DB18;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+#login:hover{
+    background-color:black;
+    color: white;
+}
+.reg-wrapper{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(245, 245, 245, 0.089);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.todo-reg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #85DB18;
+    height: 600px;
+    width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    h1{
+        font-size: large;
+        margin-bottom: 16px;
+    }
+    position: relative;
+}
+.closebtn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+.details{
+    gap: 20px;
+    input{
+        width: 300px;
+        height: 40px;
+        /* gap: 20px; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+#reg-btn{
+    height: 50px;
+    width: 180px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 30px;
+}
+#reg-btn:hover{
+    background-color: white;
+    color: black;
+}
