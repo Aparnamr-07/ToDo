@@ -29,23 +29,21 @@
     <div class="loginwrapper">
         <div class="login-todo">
             <h4 class="closeicon" onclick="closeicon()">x</h4>
-                <h5>LOGIN</h5>
-            <div class="details">
-                <div class="usrname">
+                <h1>LOGIN</h5>
+            <div class="login-details">
+                <form action="" class="loginform">
                     <input type="text" id="userid" placeholder="User name">
-                </div>
-                <div class="password">
                     <input type="password" id="passid" placeholder="Password">
-                </div>
-                <button id="bank-btn" onclick="login()">SUBMIT</button> 
+                    <button id="login-btn">SUBMIT</button>
+                </form>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <img src="{% static 'images/logo.png' %}" alt="">
-                <h1>ToDo</h1>
+                <img src="{% static 'images/todo-logo.png' %}" alt="">
+                <h1>TODO</h1>
             </div>
             <div class="menus">
                 <div class="menu_items">
@@ -57,10 +55,140 @@
             </div>
             <div class="btns">
                 <div class="b1"><button id="reg" onclick="regoff()">REGISTER</button></div>
-                <div class="b2"><button id="login">LOGIN</button></div>
+                <div class="b2"><button id="login" onclick="loginoff()">LOGIN</button></div>
             </div>
         </div>
+        <div class="banner">
+            <div class="left-banner">
+                <div class="card">
+                    <h3>Integration Tools</h4>
+                    <h5>Avg Response Time:</h6>
+                    <h2>365</h2>
+                    <h6>second</h6>
+                </div>
+            </div>
+            <div class="right-banner">
+                <button id="cp">Connecting people</button>
+                <h1>Turn To Dos <ion-icon name="radio"></ion-icon><br>
+                into Done With <br>
+                <ion-icon name="flash"></ion-icon>
+                TODO</h1>
+                <h5>Imagine a day where tasks are clear, deadlines are met, and <br>
+                your to-do list works for you, not against you.</h5>
+                <div class="sffandlm">
+                    <button id="sff">Start for Free<ion-icon name="arrow-forward-circle"></ion-icon></button>
+                    <button id="lm">Learn More<ion-icon name="arrow-forward-circle"></ion-icon></button>
+                </div>
+                <div class="tsu">
+                    <div class="trust">
+                        <h4>Trusted by Teams</h4>
+                        <h2>500+</h2>
+                    </div>
+                    <div class="save">
+                        <h4>Saved Million Hours</h4>
+                        <h2>5M</h2>
+                    </div>
+                    <div class="user">
+                        <h4>User Satisfaction</h4>
+                        <h2>90%</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="down">
+            <div class="down-area">
+                <button id="pp">Project Progress</button>
+                <h2>Tools That Work for You</h2>
+                <h2>Not Againt You</h2>
+                <h6>Taskly makes managing tasks feel effortless and intutive</h6>
+            </div>
+            <div class="cards">
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="analytics"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Organize</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="chatbox-outline"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Collaborate</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="airplane-outline"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Automate</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="analytics"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Track</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="analytics"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Integrate</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="analytics"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Customize</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="analytics"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Notify</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+                <div class="card-one">
+                    <div class="icon">
+                        <ion-icon name="analytics"></ion-icon>
+                    </div>
+                    <div class="card-details">
+                        <h3>Analyze</h3>
+                        <h6>Arrange tasks by priority and <br> deadlines</h6>
+                        <h4>Explore <ion-icon name="arrow-forward"></ion-icon></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <script src="{% static 'js/homepage.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
