@@ -9,4 +9,4 @@ function closeicon(){
 }
 function loginoff(){
     document.querySelector(".loginwrapper").style.display="flex"
-} 
+}

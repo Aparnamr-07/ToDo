@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/task.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/finallogo.png' %}" alt="">
+            </div>
+            <div class="menus">
+                <div class="menu_items">
+                    <a href="{% url 'homepage' %}"><h5>Home</h5></a>
+                    <h5>Features</h5>
+                    <h5>Task</h5>
+                    <h5>About</h5>
+                </div>
+            </div>
+            <div class="btns">
+                <div class="b1"><button id="reg" onclick="regoff()">LOGOUT</button></div>
+                <!-- <div class="b2"><button id="login" onclick="loginoff()">LOGIN</button></div> -->
+            </div>
+        </div>
+        <div class="todo">
+            <h1 class="todo-head">Welcome to ToDo!</h1>
+            <h2 class="head">Your journey to organized, stress-free days starts here. </h2>
+            <div class="todo-form">
+                <h2>Create Your ToDo</h2>
+                <form action="" class="enter-todo"></form>
+                    <input type="text" name="task" placeholder="Enter your tasks">
+                    <input type="date" id="task-date" name="deadline">
+                    <button type="button" id="addtodo">Add Todo</button>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sl No</th>
+                        <th>Date</th>
+                        <th>Todo</th>
+                        <th>Deadline</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>24-07-2025</td>
+                        <td>Recharge mobile</td>
+                        <td>26-07-2025</td>
+                        <td>
+                            <button id="save"><ion-icon name="checkmark-circle-sharp"></ion-icon></button>
+                            <button id="remove"><ion-icon name="close-circle-sharp"></ion-icon></button>
+                            <a href="{% url 'edit' %}"><button id="edit"><ion-icon name="pencil-sharp"></ion-icon></button></a>
+                            <button id="delete"><ion-icon name="trash-sharp"></ion-icon></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("task-date").setAttribute("min", today);
+    </script>
+    <!-- <script src="{% static 'js/task.js' %}"></script> -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
