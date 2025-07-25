@@ -13,14 +13,14 @@
             <h4 class="closebtn" onclick="closebtn()">x</h4>
             <h1>Open an Account</h1>
             <div class="details">
-                <form action="" class="signupForm">
-                    <input type="text" id="frstname" name="firstname" placeholder="First Name">
+                <form action=""  class="signupForm">
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name">
                     <input type="text" id="lastname" name="lastname" placeholder="Last Name">
                     <input type="email" id="email" name="email" placeholder="Email">
                     <input type="tel" id="phno" name="phoneno" placeholder="Phone Number" maxlength="10" minlength="10">
                     <input type="file" id="image" name="image" accept="image/*">
-                    <input type="text" id="usrname" placeholder="User name"> 
-                    <input type="password" id="pwd" placeholder="Password">
+                    <input type="text" id="usrname" name="username" placeholder="User name"> 
+                    <input type="password" id="pwd" name="password" placeholder="Password">
                     <button type="submit" id="reg-btn">SUBMIT</button> 
                 </form>
             </div>
@@ -31,9 +31,9 @@
             <h4 class="closeicon" onclick="closeicon()">x</h4>
                 <h1>LOGIN</h5>
             <div class="login-details">
-                <form action="" class="loginform">
-                    <input type="text" id="userid" placeholder="User name">
-                    <input type="password" id="passid" placeholder="Password">
+                <form action="{% url 'login' %}" method="post" class="loginform">{% csrf_token %}
+                    <input type="text" name="username" id="userid" placeholder="User name">
+                    <input type="password" name="password" id="passid" placeholder="Password">
                     <button id="login-btn">SUBMIT</button>
                 </form>
             </div>
@@ -42,29 +42,64 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <img src="{% static 'images/todo-logo.png' %}" alt="">
-                <h1>TODO</h1>
+                <img src="{% static 'images/finallogo.png' %}" alt="">
             </div>
             <div class="menus">
                 <div class="menu_items">
                     <h5>Home</h5>
                     <h5>Features</h5>
-                    <h5>ToDo</h5>
-                    <h5>About</h5>
+                    <a href="{% url 'task'%}"><h5>Task</h5></a>
+                    <a href="#about"><h5>About</h5></a>
                 </div>
             </div>
             <div class="btns">
+                {% if request.user.is_authenticated %}
+                {% if not request.user.is_superuser %}
+                <div class="user-profile">
+                    <h2><ion-icon name="person-circle" ></ion-icon></h2>
+                    <h5>{{request.user}}</h5>
+                </div>
+                {% else %}
+                <div class="user-profile">
+                    <h2><ion-icon name="person-circle"></ion-icon></h2>
+                    <h5>{{request.user}}</h5>
+                </div>
+                {% endif %} 
+                <div class="b1"><a href="{% url 'logout' %}"><button id="logout">LOGOUT</button></a></div>
+                {% else %}
                 <div class="b1"><button id="reg" onclick="regoff()">REGISTER</button></div>
-                <div class="b2"><button id="login" onclick="loginoff()">LOGIN</button></div>
+                <button id="login" onclick="loginoff()">LOGIN</button>
+                {% endif %}
             </div>
         </div>
         <div class="banner">
             <div class="left-banner">
                 <div class="card">
-                    <h3>Integration Tools</h4>
-                    <h5>Avg Response Time:</h6>
-                    <h2>365</h2>
-                    <h6>second</h6>
+                    <div class="card-left">
+                        <h2>Integration Tools</h2>
+                        <h5>Avg Response Time:</h4>
+                        <h2 class="thumbs">365 <button id="fast"><ion-icon name="thumbs-up"></ion-icon>Fast</button></h2>
+                        <h6>second</h6>
+                    </div>
+                    <div class="card-right">
+                        <img src="{% static 'images/clk.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="sub-card">
+                    <div class="subcard-icon"><ion-icon name="people"></ion-icon></div>
+                    <div class="subcard-details"><h2>1,273</h2><h6>Total Customers</h6></div>
+                </div>
+                <div class="sub-card">
+                    <div class="subcard-icon"><ion-icon name="person-add"></ion-icon></div>
+                    <div class="subcard-details"><h2>828</h2><h6>Active Customers</h6></div>
+                </div>
+                <div class="sub-card">
+                    <div class="subcard-icon"><ion-icon name="wallet"></ion-icon></div>
+                    <div class="subcard-details"><h2>₹10,928</h2><h6>Revenue</h6></div>
+                </div>
+                <div class="sub-card">
+                    <div class="subcard-icon"><ion-icon name="bag-remove"></ion-icon></div>
+                    <div class="subcard-details"><h2>₹2,912</h2><h6>Expense</h6></div>
                 </div>
             </div>
             <div class="right-banner">
@@ -185,7 +220,10 @@
                 </div>
             </div>
         </div>
-        
+        <div class="about" id="about">
+            <h1>About</h1>
+            <p>Stay organized and boost your productivity with our simple yet powerful to-do app. Whether you're managing daily tasks, planning projects, or setting personal goals, our app helps you keep everything in one place. With features like easy task creation, reminders, and prioritization, getting things done has never been easier.</p>
+        </div>
     </div>
     <script src="{% static 'js/homepage.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
