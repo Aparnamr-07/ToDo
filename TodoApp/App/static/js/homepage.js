@@ -10,3 +10,9 @@ function closeicon(){
 function loginoff(){
     document.querySelector(".loginwrapper").style.display="flex"
 }
+function closebttn(){
+    document.querySelector(".profilewrapper").style.display="none"
+}
+function profileoff(){
+    document.querySelector(".profilewrapper").style.display="flex"
+} 
