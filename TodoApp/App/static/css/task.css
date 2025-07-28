@@ -193,3 +193,10 @@ thead {
         width: 20px;
     }
 }
+.enter-todo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}

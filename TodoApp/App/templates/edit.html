@@ -26,13 +26,18 @@
             <!-- <h1 class="todo-head">Edit Your Todo</h1> -->
             <div class="todo-form">
                 <h2>Edit Your ToDo</h2>
-                <form action="" class="enter-todo"></form>
-                    <input type="text" name="text" placeholder="Enter your tasks">
-                    <input type="date" id="task-date" name="task-date">
-                    <button type="button" id="addtodo">Save Changes</button>
+                <form method="post" action="{% url 'edittodo' pk=pen.pk %}" class="enter-todo">{% csrf_token %} 
+                    <input type="text" name="task" placeholder="Enter your tasks" value="{{pen.task}}">
+                    <input type="date" id="task-date" name="deadline" value="{{pen.deadline|date:'Y-m-d'}}">
+                    <button type="submit" id="addtodo">Save Changes</button>
+                </form>
             </div>
         </div>
 
     </div>
+        <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("task-date").setAttribute("min", today);
+    </script>
 </body>
 </html>

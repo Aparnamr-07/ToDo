@@ -8,12 +8,32 @@
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 </head>
 <body>
+    <div class="profilewrapper">
+        <div class="prof">
+            <h4 class="closebtn" onclick="closebttn()">x</h4>
+            <div class="detail">
+                {% if prof %}
+                <form method="POST"action="{% url 'profileedit' pk=prof.pk %}" class="profform">{% csrf_token %}
+                <h1>Profile</h1>
+                <input type="text" id="frstname" name="firstname" placeholder="First Name" value="{{prof.firstname}}">
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="{{prof.lastname}}">
+                <input type="email" id="email" name="email" placeholder="Email" value="{{prof.email}}">
+                <input type="tel" id="phno" name="phoneno" placeholder="Phone Number" maxlength="10" minlength="10" value="{{prof.phoneno}}">
+                </form>
+                <div class="edit-del">
+                <button type="button" id="edit">Edit</button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     <div class="reg-wrapper">
         <div class="todo-reg">
             <h4 class="closebtn" onclick="closebtn()">x</h4>
             <h1>Open an Account</h1>
             <div class="details">
-                <form action=""  class="signupForm">
+                <form method="post" action="{% url 'signup' %}" class="signupForm">
+                {% csrf_token %} 
                     <input type="text" id="firstname" name="firstname" placeholder="First Name">
                     <input type="text" id="lastname" name="lastname" placeholder="Last Name">
                     <input type="email" id="email" name="email" placeholder="Email">
@@ -48,20 +68,20 @@
                 <div class="menu_items">
                     <h5>Home</h5>
                     <h5>Features</h5>
-                    <a href="{% url 'task'%}"><h5>Task</h5></a>
+                    <a href="{% url 'addtodo' %}"><h5>Task</h5></a>
                     <a href="#about"><h5>About</h5></a>
                 </div>
             </div>
             <div class="btns">
                 {% if request.user.is_authenticated %}
                 {% if not request.user.is_superuser %}
-                <div class="user-profile">
-                    <h2><ion-icon name="person-circle" ></ion-icon></h2>
+                <div class="user-profile" onclick="profileoff()">
+                    <h2><ion-icon name="person-circle"></ion-icon></h2>
                     <h5>{{request.user}}</h5>
                 </div>
                 {% else %}
                 <div class="user-profile">
-                    <h2><ion-icon name="person-circle"></ion-icon></h2>
+                    <h2><ion-icon name="person-circle" ></ion-icon></h2>
                     <h5>{{request.user}}</h5>
                 </div>
                 {% endif %} 
