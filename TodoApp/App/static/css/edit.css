@@ -73,6 +73,13 @@
     flex-direction: column;
     gap: 15px;
 }
+.enter-todo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
 input{
     height: 40px;
     width: 300px;
