@@ -8,14 +8,18 @@ from django.contrib.auth import authenticate,login,logout
 
 
 def homepage(request):
-    return render(request,'homepage.html')
+    try:
+        prof=Profile.objects.get(user=request.user)
+    except:
+        prof=''
+    return render(request,'homepage.html',{"prof":prof})
 
 
 # def task(request):
 #     return render(request,'task.html')
 
 
-def edit(request):
+def edit(request,pk):
     return render(request,'edit.html')
 
 
@@ -50,7 +54,8 @@ def signup(request):
             firstname=request.POST.get("firstname"),
             lastname=request.POST.get("lastname"),
             email=request.POST.get("email"),
-            phoneno=request.POST.get("phoneno")
+            phoneno=request.POST.get("phoneno"),
+            image=request.FILES["image"]
             )
     return render(request,'homepage.html')
 
@@ -61,15 +66,14 @@ def userlogout(request):
 
 
 def addtodo(request):
-    todos = Todo.objects.all()
+    todos = Todo.objects.filter(user=request.user)
     if request.method=="POST":
         Todo.objects.create(
             task=request.POST.get("task"),
             deadline=request.POST.get("deadline"),
-            # user=request.user 
+            user=request.user
         )
         return HttpResponseRedirect(reverse("addtodo"))
-    # print(f"todo {todos}") 
     return render(request,'task.html',{'content':todos}) 
 
 
@@ -84,17 +88,17 @@ def edittodo(request,pk):
  
 
 def profileedit(request,pk):
-    prof=Profile.objects.filter(pk=pk).first()
-    print(prof)
+    prof=Profile.objects.filter(pk=pk).first() 
     if request.method=="POST":
-        prof=Profile.objects.filter(pk=pk).first()
         prof.firstname=request.POST.get("firstname")
         prof.lastname=request.POST.get("lastname")
         prof.email=request.POST.get("email")
         prof.phoneno=request.POST.get("phoneno")
+        if request.FILES.get("image"):
+            prof.image=request.FILES("image")
         prof.save() 
         return HttpResponseRedirect(reverse("homepage"))
-    return render(request,'homepage.html',{'all':prof})  
+      
 
 def todocomplete(request,pk):
     comp=Todo.objects.filter(pk=pk).first()
