@@ -200,3 +200,17 @@ thead {
     flex-direction: column;
     gap: 20px;
 }
+#logout{
+    height: 50px;
+    width: 120px;
+    border-radius: 25px;
+    border: 1px solid #D1F34A;
+    background-color: #D1F34A;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+#logout:hover{
+    background-color:black;
+    color: white;
+}

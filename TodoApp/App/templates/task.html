@@ -22,8 +22,9 @@
                 </div>
             </div>
             <div class="btns">
-                <div class="b1"><button id="reg" onclick="regoff()">LOGOUT</button></div>
-                <!-- <div class="b2"><button id="login" onclick="loginoff()">LOGIN</button></div> -->
+                {% if request.user.is_authenticated %}
+                    <div class="b1"><a href="{% url 'logout' %}"><button id="logout">LOGOUT</button></a></div>
+                {% endif %}
             </div>
         </div>
         <div class="todo">
