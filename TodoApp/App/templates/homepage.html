@@ -86,8 +86,13 @@
                 {% if request.user.is_authenticated %}
                 {% if not request.user.is_superuser %}
                 <div class="user-profile" onclick="profileoff()">
-                    <img src="{{prof.image.url}}" alt="" style="width: 30px;height: 30px;border-radius: 100px;object-fit:cover;">
-                    <h5>{{prof.firstname}}</h5>
+                    {% if prof.image %}
+                        <img src="{{ prof.image.url }}" alt="" style="width: 30px;height: 30px;border-radius: 100px;object-fit:cover;">
+                        <h5>{{prof.firstname}}</h5>
+                    {% else %}
+                        <img src="{% static 'images/userprofilepic.jpg' %}" alt="" style="width: 30px;height: 30px;border-radius: 100px;object-fit:cover;">
+                        <h5>{{prof.firstname}}</h5>
+                    {% endif %}
                 </div>
                 {% else %}
                 <div class="user-profile">

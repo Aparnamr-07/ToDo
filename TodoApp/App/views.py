@@ -55,7 +55,7 @@ def signup(request):
             lastname=request.POST.get("lastname"),
             email=request.POST.get("email"),
             phoneno=request.POST.get("phoneno"),
-            image=request.FILES["image"] 
+            image=request.FILES.get("image") 
             ) 
     return render(request,'homepage.html')
 
@@ -95,7 +95,7 @@ def profileedit(request,pk):
         prof.email=request.POST.get("email")
         prof.phoneno=request.POST.get("phoneno")
         if request.FILES.get("image"):
-            prof.image=request.FILES("image")
+            prof.image=request.FILES["image"]
         prof.save() 
         return HttpResponseRedirect(reverse("homepage"))
       
