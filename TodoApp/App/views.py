@@ -55,8 +55,8 @@ def signup(request):
             lastname=request.POST.get("lastname"),
             email=request.POST.get("email"),
             phoneno=request.POST.get("phoneno"),
-            image=request.FILES["image"]
-            )
+            image=request.FILES["image"] 
+            ) 
     return render(request,'homepage.html')
 
 
